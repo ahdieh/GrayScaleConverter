@@ -37,6 +37,10 @@ public class GrayScaleConverterUsingDukeLibrary {
         ImageResource ir = new ImageResource();
         ImageResource gray = makeGray(ir);
         gray.draw();
+        String inputFileName = ir.getFileName();
+        String grayFileName = "gray" +  inputFileName;
+        gray.setFileName(grayFileName);
+        gray.save();
         
     }
 }
