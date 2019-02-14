@@ -12,7 +12,6 @@ import java.io.IOException;
 import edu.duke.*;
 
 public class GrayScaleConverter {
-    // I started with the image I wanted (inImage)
     public void makeGray(){        
         // create BufferImage and file
         BufferedImage img = null;
