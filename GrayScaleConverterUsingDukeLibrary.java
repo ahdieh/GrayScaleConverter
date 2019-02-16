@@ -43,4 +43,13 @@ public class GrayScaleConverterUsingDukeLibrary {
         gray.save();
         
     }
+    
+    public void selectAndConvert(){
+        DirectoryResource dr = new DirectoryResource();
+        for (File f : dr.selectedFiles()){
+            ImageResource inImage = new ImageResource(f);
+            ImageResource gray = makeGray(inImage);
+            gray.draw();
+        }
+    }
 }
