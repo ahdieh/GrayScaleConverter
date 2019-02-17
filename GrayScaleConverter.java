@@ -5,11 +5,15 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
+import javax.swing.JFileChooser;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
 import edu.duke.*;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class GrayScaleConverter {
     public void makeGray(){        
@@ -18,7 +22,9 @@ public class GrayScaleConverter {
         File f = null;
         // read image
         try{
-            f = new File("image.jpg");
+            JFileChooser chooser = new JFileChooser();
+            int returnVal = chooser.showOpenDialog(null);
+            f = new File(chooser.getSelectedFile().getName());
             img = ImageIO.read(f);
         }catch(IOException e){
             System.out.println(e);
@@ -48,6 +54,14 @@ public class GrayScaleConverter {
         try{
           f = new File("Output.jpg");
           ImageIO.write(img, "jpg", f);
+          JFrame frame = new JFrame();
+          ImageIcon icon = new ImageIcon("Output.jpg");
+          JLabel label = new JLabel(icon);
+          frame.add(label);
+          //frame.setDefaultCloseOperation
+          //       (JFrame.EXIT_ON_CLOSE);
+          //frame.pack();
+          frame.setVisible(true);
         }catch(IOException e){
             System.out.println(e);
         }
