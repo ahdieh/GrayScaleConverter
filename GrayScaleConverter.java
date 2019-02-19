@@ -10,7 +10,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 import java.io.IOException;
-import edu.duke.*;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -52,6 +51,7 @@ public class GrayScaleConverter {
         }
         // write image
         try{
+            
           f = new File("Output.jpg");
           ImageIO.write(img, "jpg", f);
           JFrame frame = new JFrame();
